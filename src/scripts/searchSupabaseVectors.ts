@@ -29,7 +29,7 @@ export const searchSupabaseVectors = async (query: string | undefined) => {
     const { data: results, error } = await supabaseClient.rpc('match_page_sections', {
         embedding,
         match_threshold: 0.78,
-        match_count: 3,
+        match_count: 7,
         min_content_length: 50,
     });
 
@@ -43,7 +43,7 @@ export const searchSupabaseVectors = async (query: string | undefined) => {
     }
 
     return results?.reduce((acc: string, {id, embedding, ...rest}: SupabaseVectors) => {
-        const currentStringifiedText = JSON.stringify(rest, null, 2);
-        return `${acc}\n\n${currentStringifiedText}`;
+        const currentStringifiedText = JSON.stringify(rest);
+        return `${acc}\n${currentStringifiedText}`;
     }, '');
 }
