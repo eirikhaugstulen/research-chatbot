@@ -39,8 +39,8 @@ export default async function handler(
         ];
 
         const response = await openai.createChatCompletion({
-            model: 'gpt-4',
-            temperature: 0,
+            model: 'gpt-4-1106-preview',
+            temperature: 0.1,
             messages: updatedMessages,
             function_call: 'auto',
             functions,
@@ -57,13 +57,13 @@ export default async function handler(
                     });
 
                 return openai.createChatCompletion({
-                    model: 'gpt-4',
-                    temperature: 0,
+                    model: 'gpt-4-1106-preview',
+                    temperature: 0.1,
                     // @ts-ignore
                     messages: [...updatedMessages, ...functionCallResult],
                     stream: true,
                 })
-            }
+            },
         });
 
         return new StreamingTextResponse(stream)

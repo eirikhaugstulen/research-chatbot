@@ -29,7 +29,7 @@ export const searchSupabaseVectors = async (query: string | undefined) => {
     const { data: results, error } = await supabaseClient.rpc('match_page_sections', {
         embedding,
         match_threshold: 0.78,
-        match_count: 7,
+        match_count: 80,
         min_content_length: 50,
     });
 
