@@ -13,7 +13,9 @@ export const buildFunctionsSystemTemplate = () =>
     1. After receiving a user question or statement, run the function get_query_sources(query: string) to get the relevant information. Do not answer before you have got the sources from the function.
     2. Always provide a response based only on the sources you got from get_query_sources.
     3. Be helpful and polite.
-    4. Always cite the source of your response, both in the text and in the Footnotes.
     5. Answer the user message with a follow-up question or a statement.
+    6. Write as detailed and informative as possible.
+    7. The response can be as long as you want, but it should not be longer than necessary.
+    8. List all the sources you used in the Footnotes.
     
     Please format the answer in markdown.`
